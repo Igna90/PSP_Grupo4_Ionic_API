@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="Volver" defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <!-- formGroup: Coleccion de varios controles de formularios o FormControls
+  (ngSubmit)="submitForm() : Directiva que activa el envío de un formulario -->
+  <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
+    <ion-item lines="full" class="pad">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="username" type="text" required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="errorControl.username.errors?.required">
+      *Campo obligatorio
+    </span>
+    <span class="error ion-padding" *ngIf="errorControl.username.errors?.minlength">
+      El campo 'Username' debe de tener 5 caracteres como mínimo
+    </span>
+    <ion-item lines="full" class="pa">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password" required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="errorControl.password.errors?.required">
+      *Campo obligatorio
+    </span>
+    <span class="error ion-padding" *ngIf="errorControl.username.errors?.minlength">
+      El campo 'Password' debe de tener 5 caracteres como mínimo
+    </span>
+    <ion-row>
+      <ion-col class="pa">
+        <ion-button type="submit" color="dark" expand="block">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

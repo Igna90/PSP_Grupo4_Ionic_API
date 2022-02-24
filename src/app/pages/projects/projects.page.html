@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="Volver" defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Proyectos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding background">
+  <ion-list>
+      <ion-item-sliding class="pad" *ngFor="let project of projects"> 
+          <ion-item color="dark" class="ancho">
+            <ion-label class="ion-padding pad2">
+                <h3>{{ project.title }} </h3>
+                <h4>{{ project.description }}</h4>
+                <h4>Nivel: {{ project.level }}</h4>
+                <h4>Comienzo : {{ project.startDate }}, Fin: {{ project.endDate }} </h4>
+                <h4>Informe : {{ project.endReport }}</h4>
+            </ion-label>
+            </ion-item>
+
+          </ion-item-sliding>
+        </ion-list>
+    </ion-content>
